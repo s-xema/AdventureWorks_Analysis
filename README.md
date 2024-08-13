@@ -1,7 +1,7 @@
 # AdvendutreWorks Sales Analysis 
 AdventureWorks Sales Analysis project repository (created 02/07/23)
 
-### [Here you can interact with the dashboard](https://app.powerbi.com/view?r=eyJrIjoiNjJlY2ZkZDQtY2EwYS00NWVlLTliODktM2ViMzg2OTQ3OGJkIiwidCI6Ijk5YTVhNjM1LTY1OGEtNGFhMS04MGIxLTdiM2IwNzcxZTkxYiIsImMiOjl9)
+### [The complete interactive report can be found here](https://app.powerbi.com/view?r=eyJrIjoiNjJlY2ZkZDQtY2EwYS00NWVlLTliODktM2ViMzg2OTQ3OGJkIiwidCI6Ijk5YTVhNjM1LTY1OGEtNGFhMS04MGIxLTdiM2IwNzcxZTkxYiIsImMiOjl9)
 
 ![dash_cover](images/CoverIMG.JPG)
 
