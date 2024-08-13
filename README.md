@@ -7,7 +7,7 @@ AdventureWorks Sales Analysis project repository (created 02/07/23)
 
 The objective of this project is to create an end-to-end sales analytic report based on AdventureWorks database. Which is an online transaction processing (OLAP) database sample based on a fictitious multinational bicycle manufacturing company named AdventureWorks. 
 This database was created by Microsoft in order to show how to design a SQL Server Database.
-![AW_logo](images/AdventureWorksLogo.jpg)
+![AW_logo](images/AdventureWorksLogoSmall.jpg)
 
 The implementation of this project has involved the following steps:
 
@@ -36,7 +36,9 @@ The data model used in this project is star schema with a unique fact table and 
 In this case there is a query for each imported table obtaining the following schema:
 Fact table: Sales
 Dimensions tables: Sales Person, Region, Product, Customer, Special Offer
+
 ![model](images/model.png)
+
 Each dimension table it’s related to the fact table (one-to-many relationship)
 During data modeling process it’s necessary to create a date table (Calendar table) to make calculations based on date.
 
