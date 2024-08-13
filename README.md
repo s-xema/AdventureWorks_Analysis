@@ -6,7 +6,7 @@ AdventureWorks Sales Analysis project repository (created 02/07/23)
 ![dash_cover](images/CoverIMG.JPG)
 
 The objective of this project is to create an end-to-end sales analytic report based on AdventureWorks database. Which is an online transaction processing (OLAP) database sample based on a fictitious multinational bicycle manufacturing company named AdventureWorks. 
-This database was created by Microsoft in order to show how to design a SQL Server Database.
+This database was created by Microsoft in order to show how to design a SQL Server Database.\
 ![AW_logo](images/AdventureWorksLogoSmall.jpg)
 
 The implementation of this project has involved the following steps:
