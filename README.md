@@ -11,8 +11,6 @@ This database was created by Microsoft in order to show how to design a SQL Serv
   <img src="https://github.com/s-xema/AdventureWorks_Analysis/blob/5b56254171dbcfda89cf136253fde84aa8c20219/images/AdventureWorksLogoSmall.jpg?raw=true" alt="AW_logo"/>
 </p>
 
-![AW_logo](images/AdventureWorksLogoSmall.jpg)
-
 The implementation of this project has involved the following steps:
 
 ## Collecting the Data:
