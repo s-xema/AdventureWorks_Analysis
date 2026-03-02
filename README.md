@@ -1,60 +1,102 @@
-# AdvendutreWorks Sales Analysis 
-AdventureWorks Sales Analysis project repository (created 02/07/23)
+# 🛒 AdventureWorks Sales Analysis
 
-### [The complete interactive report can be found here](https://app.powerbi.com/view?r=eyJrIjoiNjJlY2ZkZDQtY2EwYS00NWVlLTliODktM2ViMzg2OTQ3OGJkIiwidCI6Ijk5YTVhNjM1LTY1OGEtNGFhMS04MGIxLTdiM2IwNzcxZTkxYiIsImMiOjl9)
+> End-to-end sales analytics report built on the AdventureWorks relational database —
+> from PostgreSQL source to star schema data model to interactive Power BI dashboard.
 
-![dash_cover](images/CoverIMG.JPG)
+[![Live Report](https://img.shields.io/badge/▶_View_Live_Report-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://app.powerbi.com/view?r=eyJrIjoiNjJlY2ZkZDQtY2EwYS00NWVlLTliODktM2ViMzg2OTQ3OGJkIiwidCI6Ijk5YTVhNjM1LTY1OGEtNGFhMS04MGIxLTdiM2IwNzcxZTkxYiIsImMiOjl9)
 
-The objective of this project is to create an end-to-end sales analytic report based on AdventureWorks database. Which is an online transaction processing (OLAP) database sample based on a fictitious multinational bicycle manufacturing company named AdventureWorks. 
-This database was created by Microsoft in order to show how to design a SQL Server Database.\
-<p align="center">
-  <img src="https://github.com/s-xema/AdventureWorks_Analysis/blob/5b56254171dbcfda89cf136253fde84aa8c20219/images/AdventureWorksLogoSmall.jpg?raw=true" alt="AW_logo"/>
-</p>
+![Dashboard Cover](images/CoverIMG.JPG)
 
-The implementation of this project has involved the following steps:
+---
 
-## Collecting the Data:
-AdventureWorks OLAP database sample is available to download [here](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/adventure-works), where it provides information to restore or create it as SQL Server database. 
- 
-## Creating the Database:
-This github [repository](https://github.com/lorint/AdventureWorks-for-Postgres) (by _@lorint_) provides all the scripts and information necessary to create a PostgreSQL database with AdventureWorks sample.
-There are two options to create the DB: 
-The first one creates the DB on the local computer by running a ruby file to convert CSV’s into a format usable by PostgreSQL, as well as a PostgreSQL script to create the tables, load the data, add primary and foreign keys, and create some of the views used by AdventureWorks.
-The second one takes the same method but deploys it with docker-compose to create the PostgreSQL DB in a container.
-Both methods were tested but the rest of the project follows the first one. 
-The result is a DB with 68 tables containing HR, sales, product, and purchasing data organized across 5 schemes with 300 employees, 500 products, 20000 customers and 31000 sales with 121.300 lines items from 2011 to 2014.
+## 🎯 Project Overview
 
-## Data Filtering:
-The initial requirement is to filter this amount of data in order to import into the analytic tool only a collection of data prepared for modeling.
-At this moment it is important to look into the existing DB schemes to understand how the data is structured using database management platforms like pgAdmin and DBeaver. These tools allow to write SQL queries to extract relevant data from the DB. Queries that also enable to organize the data in tables in order to start data modeling. 
- 
-## Data Cleaning:
-Working with OLTP DB makes the data cleaning easier than having raw data instead, even so it is necessary to choose feature names and set data format.
+Sales analytics report based on **AdventureWorks** — Microsoft's sample OLTP database
+modelling a fictitious multinational bicycle manufacturer. The database spans 2011–2014
+and contains 300 employees, 500 products, 20,000 customers and 31,000 sales orders
+across 5 database schemas.
 
-## Data Modeling:
-From here Power BI Desktop will be used to complete next stages. 
-At this point it is required to import the data from PostgreSQL DB with an SQL statement within the specific connection available in Power BI. Connection that allows defining data filtering and data cleaning by applying the SQL queries created in previous stages.
-The data model used in this project is star schema with a unique fact table and multiple dimensions tables.
-In this case there is a query for each imported table obtaining the following schema:
-Fact table: Sales
-Dimensions tables: Sales Person, Region, Product, Customer, Special Offer
+**Goal:** transform a complex relational OLTP database into a clean, performant
+analytical model with actionable sales insights.
 
-![model](images/model.png)
+---
 
-Each dimension table it’s related to the fact table (one-to-many relationship)
-During data modeling process it’s necessary to create a date table (Calendar table) to make calculations based on date.
+## 🔄 Project Workflow
 
-## Creating DAX Measures
-Building a complete set of DAX measures allows to gain insight from the data and built more complex visualizations.
-    
-## Creating Visualizations
-Exploring different variables and their relationships with each other reveals which visualizations are more appropriate to represent the information obtained from data analytic.
-Once the visualizations have been created and selected, it is time to start building the dashboard.
+### 1 · Database Setup
+AdventureWorks deployed as a **PostgreSQL** database using
+[@lorint's scripts](https://github.com/lorint/AdventureWorks-for-Postgres) —
+available via local install or Docker Compose.
 
-## Building the Dashboard
-Power BI provides different tools such as bookmarks, buttons, slicing, drill-through, page navigation and other techniques that can give a complete view of the insights found in the DB.
+- 68 tables across 5 schemas (HR, Sales, Product, Purchasing, Person)
+- Explored with **pgAdmin** and **DBeaver** to map relationships
 
+### 2 · Data Filtering & Cleaning
+SQL queries written to extract only the tables and columns needed for analysis,
+applied directly at the Power BI connection level to avoid importing unnecessary data.
 
-Thank you for your attention and feel free to give your feedback.
+- Selected relevant fields from sales, product, customer and territory schemas
+- Standardised column names and data types
+- OLTP source minimised the need for heavy cleaning
 
+### 3 · Data Model — Star Schema
 
+Power BI connects to PostgreSQL via native connector, applying the SQL filters on import.
+```
+Fact Table:      Sales
+Dimensions:      Sales Person · Region · Product · Customer · Special Offer · Calendar
+```
+
+![Data Model](images/model.png)
+
+All dimension tables relate to the fact table via **one-to-many** relationships.
+A dedicated **Calendar table** enables time intelligence calculations.
+
+### 4 · DAX Measures
+Complete set of measures built to power the report:
+
+- Revenue, profit margin, order volume
+- YoY growth, MTD / YTD comparisons
+- Top N products and customers
+- Sales rep performance tracking
+
+### 5 · Dashboard
+Interactive Power BI report using bookmarks, drill-through, slicers and page navigation
+for a complete view of sales performance across products, regions and time.
+
+---
+
+## 📊 Key Insights Covered
+
+- Revenue and margin trends by year, quarter and month
+- Top performing products, categories and subcategories
+- Regional sales breakdown and territory performance
+- Customer segmentation and purchasing behaviour
+- Sales team individual performance
+
+---
+
+## 🛠️ Tech Stack
+
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
+![Power Query](https://img.shields.io/badge/Power_Query-217346?style=for-the-badge&logo=microsoft&logoColor=white)
+![DAX](https://img.shields.io/badge/DAX-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)
+
+---
+
+## 📁 Repository Structure
+```
+AdventureWorks_Analysis/
+├── sql/        # SQL queries — data filtering and extraction
+├── images/     # Dashboard screenshots and data model diagram
+└── README.md
+```
+
+---
+
+## 📫 Contact
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jose-maria-sancho-navarro/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=linktree&logoColor=white)](https://linktr.ee/xemasancho)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:xemasancho@gmail.com)
